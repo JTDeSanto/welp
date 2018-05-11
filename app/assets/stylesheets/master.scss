@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -17,9 +18,11 @@
   box-shadow:  0px 2px 3px #1b1b1b
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
+.navbar-inverse .navbar-brand{
+  color:  #FFA60D;
+  font-family: 'quicksandbold', sans-serif;
+  font-size: 27px;
+
 }
 
 body {
@@ -27,4 +30,11 @@ body {
   font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 
 }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+
 
