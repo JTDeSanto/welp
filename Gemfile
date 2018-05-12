@@ -61,3 +61,4 @@ source 'https://rails-assets.org' do
 
   gem 'will_paginate', '>= 3.1'
   gem 'simple_form'
+  gem 'font-awesome-rails'
