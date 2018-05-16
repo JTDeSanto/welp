@@ -100,19 +100,37 @@
   <% end %>
   </div>
   <br /><br />
-  <div class="col-10 offset-1">
-  <h1 class="float-left">Comments</h1>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
-      Add a comment
-    </button>
-    <div class="clear"></div>
-     <!-- Button trigger modal -->
+
+    
+  
+  <div class="col-10 offset-1">
+    <h2 class="float-left">Pictures</h2>
+     <!-- Button trigger Photo modal -->
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal-photo">
       Add a photo
     </button>
-  </div>
+
+    <div class="clear"></div>
+
+    <% @place.photos.each do |photo| %>
+      <%= image_tag photo.picture %>
+      <%= photo.caption %>
+    <% end %>
+
+    </div>
+     
+   
+
+  <div class="col-10 offset-1">
+  <h2 class="float-left">Comments</h2>
+
+    <!-- Button trigger Comment modal -->
+    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
+      Add a comment
+    </button>
+   
+
 
     <div class="clear"></div>
 
