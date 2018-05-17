@@ -13,6 +13,10 @@
   padding: 20px;
 }
 
+.img-caption {
+  font-size: 8px;
+}
+
 .clear {
   clear: both;
 }
@@ -47,6 +51,9 @@
   .flickr_pagination .next_page {
     margin-left: 1em; }
 
+.btn-sm {
+  border: 1px solid
+}
 
 .invalid-feedback {
   color: #ff3333;
@@ -99,6 +106,7 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
 #map {
       height: 300px;
     }

@@ -92,6 +92,9 @@
   </div>
 </div>
 
+
+ 
+
   <div class="float-right">
   <% if current_user && current_user == @place.user %>
   <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
@@ -102,48 +105,87 @@
   <br /><br />
 
 
-    
+   <div class="clear"></div> 
   
-  <div class="col-10 offset-1">
+  <div class="col-10 offset-1 pictures">
     <h2 class="float-left">Pictures</h2>
-     <!-- Button trigger Photo modal -->
+  
+    <div class="clear"></div>
+    <div class="row">
+      <% @place.photos.each do |photo| %>
+
+        <div class="col-4">
+          <a data-toggle="modal" data-target="#myModal-picture">
+              <%= image_tag photo.picture, class: 'img img-thumbnail' %> 
+          </a>
+
+          
+           <!-- Picture View Modal -->
+          <div class="modal fade" id="myModal-picture" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="myModalLabel"><%= @place.name%></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              
+                <div class="modal-body">
+                  
+                <%= image_tag photo, class: 'img img-thumbnail' %>
+                  <br />
+
+                  <p class="img-caption"> <%= photo.caption %><% photo.id %></p>
+           
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <% end %>
+
+        </div>
+    
+        <!-- Button trigger Photo modal -->
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal-photo">
       Add a photo
     </button>
-
-    <div class="clear"></div>
-
-    <% @place.photos.each do |photo| %>
-      <%= image_tag photo.picture %>
-      <%= photo.caption %>
-    <% end %>
+    <br />
 
     </div>
      
-   
+    <div class="clear"></div>
+    <hr />
 
-  <div class="col-10 offset-1">
-  <h2 class="float-left">Comments</h2>
+  <div class="col-10 offset-1 comments">
+    <h2 class="float-left">Comments</h2>
+  
+      <div class="clear"></div>
 
-    <!-- Button trigger Comment modal -->
+    <% @place.comments.each do |comment| %>
+      <div class="col-12 col-md-12 col-sm-6">
+        <blockquote>
+          <% if comment.humanized_rating.present? %>
+            <b><%= comment.humanized_rating %> </b>
+            <% end %>
+          <%= comment.message %>
+          <br />
+          <small><%= comment.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
+
+     <!-- Button trigger Comment modal -->
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
       Add a comment
     </button>
-   
-
-
-    <div class="clear"></div>
-
-  <% @place.comments.each do |comment| %>
-    <div class="col-12 col-md-12 col-sm-6">
-      <blockquote>
-        <% if comment.humanized_rating.present? %>
-          <b><%= comment.humanized_rating %> </b>
-          <% end %>
-        <%= comment.message %>
-        <br />
-        <small><%= comment.user.email %></small>
-      </blockquote>
-    </div>
-    <% end %>
+    <br />
+    <br />
 </div>
