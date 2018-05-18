@@ -14,6 +14,7 @@
   
 </div>
 
+<br /><br />
 <h1 class="text-center">My Comments</h1>
   <br /><br />
 <div class="row">
@@ -21,17 +22,66 @@
     <% @user.comments.each do |comment| %>
     <div class="col-12 col-md-12 col-sm-6">
       <h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %></h2>
-        <blockquote>
-          <% if comment.humanized_rating.present? %>
-            <b><%= comment.humanized_rating %> </b>
-            <% end %>
-          <%= comment.message %>
-          <br />
-          <small><%= comment.user.email %></small>
-        </blockquote>
-      </div>
+      <blockquote>
+        <% if comment.humanized_rating.present? %>
+          <b><%= comment.humanized_rating %> </b>
+          <% end %>
+        <%= comment.message %>
+        <br />
+        <small><%= comment.user.email %></small>
+      </blockquote>
+    </div>
       
     <% end %>
+  </div>
 
+  <h2 class="text-center">My Places</h2>
+  <br /><br />
+  <div class="row">
+    <% @user.places.each do |place| %>
+    
+      <div class="booyah-box col-10 offset-1">
+  <h1><%= link_to place.name, place_path(place)%></h1>
+
+  <div class="row">
+    <div class="col-6">
+    <i><%=  place.address %></i><br /><br />
+    <p><%=  place.description %> </p><br />
+
+    <% if place.user.present? %>
+      <small><p>Created by:<%= place.user.email %></p></small>
+    <% end %>
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+
+        <% place.photos.each do |photo| %>
+          <% if photo.picture.present? %>
+          <div class="col-5">
+            <%= image_tag photo.picture, class: 'img-thumbnail' %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
+
+  <div class="clear"></div>
+
+  <% if place.comments.present? %>
+    <div class="col-12">
+      <blockquote>
+        <% if place.comments.last.humanized_rating.present? %>
+          <b><%= place.comments.last.humanized_rating %> </b>
+          <% end %>
+        <%= place.comments.last.message %>
+        <br />
+        <small><%= place.comments.last.user.email %></small>
+      </blockquote>
+    </div>
+  <% end %>
+</div>
+  </div>
+  <% end %>
