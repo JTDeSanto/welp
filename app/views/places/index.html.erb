@@ -51,13 +51,15 @@
     <div class="col-6">
       <div class="row">
 
-        <% place.photos.each do |photo| %>
-          <% if photo.picture.present? %>
-          <div class="col-5 offset-1">
-            <%= image_tag photo.picture, class: 'img-thumbnail' %>
+
+        
+          <% if place.photos.present? %>
+          <div class="col-8 offset-1 ">
+            <br />
+            <%= image_tag place.photos.first.picture, class: 'img-thumbnail' %>
           </div>
           <% end %>
-        <% end %>
+        
       </div>
     </div>
 

@@ -132,11 +132,13 @@
                 </div>
               
                 <div class="modal-body">
+
                   <% @place.photos.each do |photo| %>
-                <%= image_tag photo.picture, class: 'img img-thumbnail' %>
+                  
+                    <%= image_tag photo.picture, class: 'img img-thumbnail' %>
                   <br />
 
-                  <p class="img-caption"> <%= photo.caption %><% photo.id %></p>
+                  <p class="img-caption"> <%= photo.caption %></p>
               <% end %>
                 </div>
                 <div class="modal-footer">
