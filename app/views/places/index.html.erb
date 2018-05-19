@@ -53,7 +53,7 @@
 
         <% place.photos.each do |photo| %>
           <% if photo.picture.present? %>
-          <div class="col-5">
+          <div class="col-5 offset-1">
             <%= image_tag photo.picture, class: 'img-thumbnail' %>
           </div>
           <% end %>
